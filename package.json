@@ -1,0 +1,59 @@
+{
+  "name": "@mxrcochxvez/bugsmash-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for BugSmash reviewer feedback — keeps the API key out of the LLM context",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "bugsmash-mcp": "dist/index.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "pack:check": "npm pack --dry-run"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "bugsmash",
+    "claude",
+    "llm",
+    "review",
+    "feedback"
+  ],
+  "author": "mxrcochxvez",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxrcochxvez/bugsmash_mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mxrcochxvez/bugsmash_mcp/issues"
+  },
+  "homepage": "https://github.com/mxrcochxvez/bugsmash_mcp#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2"
+  }
+}
